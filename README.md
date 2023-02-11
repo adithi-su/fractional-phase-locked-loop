@@ -1,4 +1,4 @@
-# Fractional Phase locked loop 
+# Fractional PLL
 
 Project title: 2.4 GHz Delta Sigma based Fractional Phase Locked Loop for Wireless Communication Applications
 
@@ -70,6 +70,7 @@ Open image via terminal: `gio open image.png`
 * [Delta-Sigma Fractional-N PLL, Sudhakar Pamarti](https://www.youtube.com/watch?v=7Di2jv_rlko)
 * [Model files - from IIT Madras lectures](https://www.ee.iitm.ac.in/~nagendra/cadinfo.html)
 * [Oscillator general topology, large signal Gm, amplitude and frequency calculation](https://www.youtube.com/watch?v=L7uazLiHC7o)
+* [gm-Id design methodology](https://youtu.be/dzz4z3ijVts)
 
 #### Revise
 
