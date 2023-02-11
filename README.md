@@ -71,6 +71,8 @@ Open image via terminal: `gio open image.png`
 * [Model files - from IIT Madras lectures](https://www.ee.iitm.ac.in/~nagendra/cadinfo.html)
 * [Oscillator general topology, large signal Gm, amplitude and frequency calculation](https://www.youtube.com/watch?v=L7uazLiHC7o)
 * [gm-Id design methodology](https://youtu.be/dzz4z3ijVts)
+* [2 stage Miller opamp](https://youtu.be/PT31xAEd_v4)
+* [Stability of CMFB](https://www.youtube.com/watch?v=Zvv2TBVyuOI) 
 
 #### Revise
 
