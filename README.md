@@ -1,4 +1,12 @@
-# fractional-pll
+# Fractional Phase locked loop 
+
+Project title: 2.4 GHz Delta Sigma based Fractional Phase Locked Loop for Wireless Communication Applications
+
+Project Members:
+* Adithi S Upadhya 
+* Rohan Mallya 
+* Jaya Srivastava
+
 Technology file for LTSpice: 65nm [https://ptm.asu.edu/](https://ptm.asu.edu/)  
 
 ### Virtuoso Cadence:
