@@ -9,7 +9,8 @@ Project Members:
 
 ### Tools used
 - Cadence Virtuoso 
-- LTSpice - Technology file for LTSpice: 65nm [https://ptm.asu.edu/](https://ptm.asu.edu/)  
+- LTSpice 
+  - Technology file for LTSpice: 65nm [https://ptm.asu.edu/](https://ptm.asu.edu/)  
 - MATLAB
 - Icarus Verilog
 
@@ -19,7 +20,7 @@ Project Members:
 - 1.2 V Supply Voltage
 - Target Frequency band 2.4 GHz to 2.48 GHz
 - Lock Time of 20 μs
-- KV CO = 82 MHz/V
+- Kvco = 82 MHz/V
 - Charge pump current of 100 μA
 - Phase margin of 70°
 - Reference frequency of ≈20 MHz
