@@ -1,15 +1,66 @@
 # Fractional PLL
 
-Project title: 2.4 GHz Delta Sigma based Fractional Phase Locked Loop for Wireless Communication Applications
+Project title: **2.4 GHz Delta Sigma based Fractional Phase Locked Loop for Wireless Communication Applications**
 
 Project Members:
-* Adithi S Upadhya 
+* Adithi S Upadhya
 * Rohan Mallya 
 * Jaya Srivastava
 
-Technology file for LTSpice: 65nm [https://ptm.asu.edu/](https://ptm.asu.edu/)  
+### Tools used
+- Cadence Virtuoso 
+- LTSpice - Technology file for LTSpice: 65nm [https://ptm.asu.edu/](https://ptm.asu.edu/)  
+- MATLAB
+- Icarus Verilog
 
-### Virtuoso Cadence:
+### Design targets 
+
+- 65 nm CMOS Technology
+- 1.2 V Supply Voltage
+- Target Frequency band 2.4 GHz to 2.48 GHz
+- Lock Time of 20 μs
+- KV CO = 82 MHz/V
+- Charge pump current of 100 μA
+- Phase margin of 70°
+- Reference frequency of ≈20 MHz
+
+Choosing a large loop bandwidth leads to better phase noise since the divided VCO output mimics
+the crystal frequency within the loop bandwidth. However, on the contrary it may also allow spurs
+to pass through.
+
+Hence, for spur rejection loop bandwidth must be kept as small as possible. Keeping a very small
+loop bandwidth makes the PLL slow and increases the lock time. Thus, there is a tradeoff.
+
+Considering the above factors, the following parameters were chosen:
+- Loop Bandwidth = Reference Frequency / 100 = 0.2 MHz
+- Second-Order Passive filter: C1 = 7.93 pF, C2 = 247 pF, R1 = 19.2 kΩ
+
+### Deliverables 
+
+- MATLAB Simulation: Fractional PLL
+- Charge-pump PLL 
+  - Second-order type-2
+  - Third-order type-2
+- LC VCO 
+- Digital Delta-Sigma modulator 
+  - First-order DDSM 
+  - Second-order DDSM 
+- Two-stage fully-differential OTA
+- OTA based RC Integrator
+- Comparator 
+- Continuous-time Delta-Sigma modulator
+  - First-order CTDSM 
+  - Second-order CTDSM 
+- Phase-frequency detector 
+- Charge pump 
+- Fractional frequency divider
+- CPPL: using a frequency divider to generate toggling modulus control
+- CPPL: with designed charge pump and CTDSM
+- CPPL: with designed charge pump and DDSM
+
+**Future work**: CPPL: with CTDSM and feedforward correction, architectures for low-power charge pump and spur-reduction techniques
+
+### Virtuoso Cadence: Usage instructions
 
 - `ssh -Y username@ip`
 - cd into work dir
@@ -62,7 +113,45 @@ Open image via terminal: `gio open image.png`
 - Enable shared folder - VM settings, add the required folder
 - On ubuntu: my computer - mnt - hgfs - filename
 
-#### Links 
+### References 
+[1] Dean Banerjee and Paul Boyer. “Delta Sigma PLLs Raise The Standard For Performance”. In: National
+Semiconductor Application Brief 125 (2003).
+
+[2] T Chembiyan, Preetham N Reddy, and G Raghurama. “A Very Low Reference Spur Phase Offset
+Technique in Fractional-N Charge pump PLLs”. In: ().
+
+[3] Ian Collins. “Phase-Locked Loop (PLL) Fundamentals”. In: SSB 130.140 (2018), p. 150.
+
+[4] Ian Galton. Delta-sigma fractional-N phase-locked loops. 2003.
+
+[5] Richard Gu and Sridhar Ramaswamy. “Fractional-N phase locked loop design and applications”. In:
+2007 7th International Conference on ASIC. IEEE. 2007, pp. 327–332.
+
+[6] Texas Instruments and Curtis Barrett. “Fractional/integer-N PLL basics”. In: SWRA029, edited by Curtis
+Barrett, wireless communication business unit (1999).
+
+[7] Sudhakar Pamarti, Lars Jansson, and Ian Galton. “A wideband 2.4-GHz delta-sigma fractional-NPLL
+with 1-Mb/s in-loop modulation”. In: IEEE Journal of Solid-State Circuits 39.1 (2004), pp. 49–62.
+
+[8] Shanthi Pavan, Richard Schreier, and Gabor C Temes. Understanding delta-sigma data converters. John
+Wiley & Sons, 2017.
+
+[9] Behzad Razavi. Design of CMOS phase-locked loops: From circuit level to architecture level. Cambridge
+University Press, 2020.
+
+[10] Behzad Razavi. “Design of millimeter-wave CMOS radios: A tutorial”. In: IEEE Transactions on Circuits
+and Systems I: Regular Papers 56.1 (2009), pp. 4–16.
+
+[11] Behzad Razavi. “The delta-sigma modulator [a circuit for all seasons]”. In: IEEE Solid-State Circuits
+Magazine 8.2 (2016), pp. 10–15.
+
+[12] Behzad Razavi. “The StrongARM latch [a circuit for all seasons]”. In: IEEE Solid-State Circuits Magazine
+7.2 (2015), pp. 12–17.
+
+[13] Behzad Razavi and Razavi Behzad. RF microelectronics. Vol. 2. Prentice hall New York, 2012.
+60
+
+### Links 
 
 * [RF Integrated Circuits- Prof. Shouribrata Chatterjee, IIT Delhi](https://www.youtube.com/playlist?list=PLbMVogVj5nJQdGDSx243YPnNeLMBrhNE8)
 * [PLL - Prof. Saurabh Saxena, IIT Madras](https://archive.nptel.ac.in/courses/108/106/108106184/)
@@ -74,9 +163,3 @@ Open image via terminal: `gio open image.png`
 * [2 stage Miller opamp](https://youtu.be/PT31xAEd_v4)
 * [Stability of CMFB](https://www.youtube.com/watch?v=Zvv2TBVyuOI) 
 
-#### Revise
-
-* Opamp basics
-* Analog electronics- feedback mechanism (Sedra and Smith)
-* Control Systems - oscillations part 
-* MOSFET basics
