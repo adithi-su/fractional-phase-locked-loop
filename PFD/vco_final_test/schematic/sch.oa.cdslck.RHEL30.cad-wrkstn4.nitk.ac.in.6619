@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      fractional_pll
+HostName                       cad-wrkstn4.nitk.ac.in
+ProcessIdentifier              6619
+ProcessCreationTime_UTC        1679933247
+ProcessCreationTime_Readable   Mon Mar 27 21:37:27 2023 IST
+AppIdentifier                  OA File System Design Manager
+OSType                         unix
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         /home/fractional_pll/project/umc65/PD/vco_final_test/schematic/sch.oa.cdslck
+TimeEditLocked                 Mon Mar 27 21:45:16 2023 IST

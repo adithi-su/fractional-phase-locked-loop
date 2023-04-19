@@ -1,0 +1,9 @@
+// VerilogA for PD, d_ff_r, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module d_ff_r;
+
+
+endmodule

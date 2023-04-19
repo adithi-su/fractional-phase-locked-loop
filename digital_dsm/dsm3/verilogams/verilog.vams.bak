@@ -1,0 +1,53 @@
+//Verilog-AMS HDL for "digital_dsm", "dsm3" "verilogams"
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module dsm3(alpha, reset, MSB, clk);
+    input [2:0] alpha;
+    input clk, reset;
+    output reg MSB;
+
+    wire signed [3:0] vdiff1; 
+    reg signed [4:0] vint1;
+    wire signed [3:0] fb; 
+
+    wire signed [4:0] ac_in;
+    reg signed [4:0] ac_reg_out = 0;
+    
+    assign vdiff1 =  reset ? 4'b0 : ({1'b0, alpha} - fb);
+
+    assign ac_in = {1'b0, vdiff1};
+    always @(posedge clk) begin
+    if (reset) begin
+      ac_reg_out <= 0;
+      vint1 <= 0;
+    end
+    else begin
+      vint1 <= ac_in + ac_reg_out;
+      ac_reg_out <= vint1;
+    end
+   end
+
+    always @(posedge clk) 
+    if (reset)
+    begin
+      MSB <= 1'b0;
+    end
+    else
+    begin
+       MSB <= vint1[4]; 
+    end
+
+    assign fb = {MSB,{(3){1'b0}}};
+
+endmodule
+
+
+
+
+
+
+
+
+

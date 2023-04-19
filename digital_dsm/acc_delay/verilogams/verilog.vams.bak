@@ -1,0 +1,24 @@
+//Verilog-AMS HDL for "digital_dsm", "acc_delay" "verilogams"
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module acc_delay (
+input clk, 
+input reset,
+input signed [4:0] in,
+output reg signed [4:0] out);
+
+reg signed [4:0] reg_out = 0;
+always @(posedge clk) begin 
+if (reset) begin 
+reg_out <= 0;
+out <= 0;
+end
+else begin 
+out <= in + reg_out;
+reg_out <= out;
+end
+end
+
+endmodule

@@ -1,0 +1,35 @@
+// VerilogA for PD, d_ff_r, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module d_ff_r(clk, d, reset, q, qb);
+
+input clk, d, reset; output q, qb;
+voltage clk, d, reset, q, qb;
+parameter real v0=0;
+parameter real v1=1 from (v0:inf);
+parameter integer dir=1 from [-1:1] exclude 0;
+parameter real td=0 from [0:inf);
+parameter real tt=0 from [0:inf);
+parameter integer init_state=0 from [0:1];
+integer actNow, out, state;
+real thresh;
+
+analog begin
+    thresh = (v0+v1)/2;
+    actNow = 0;
+    @(cross(V(clk) - thresh, dir) or cross(V(reset) - thresh, +1)) begin
+	actNow = 1;
+	state = (V(d) > thresh) && (V(reset) < thresh);
+    end
+    @(initial_step) begin
+	actNow = 1;
+	state = init_state;
+    end
+    out = idt(0, state, actNow);
+    V(q) <+ transition(out ? v1 : v0, td, tt);
+    V(qb) <+ v0 + v1 - V(q);
+end
+endmodule
+

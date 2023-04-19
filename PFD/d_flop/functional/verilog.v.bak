@@ -1,0 +1,6 @@
+//Verilog HDL for "PD", "d_flop" "functional"
+
+
+module d_flop ( );
+
+endmodule

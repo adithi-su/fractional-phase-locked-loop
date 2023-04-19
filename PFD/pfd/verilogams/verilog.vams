@@ -1,0 +1,35 @@
+// VerilogA for PD, pfd, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+`timescale 10ps / 1ps
+
+module pfd (up, dn, upb, dnb, fref, fdiv, test);
+
+input fref;
+input fdiv;
+output up, upb, dn, dnb;
+
+wire fv_rst, fr_rst;
+wire reset;
+reg q0, q1;
+
+
+assign fr_rst = reset | (q0 & q1);
+assign fv_rst = reset | (q0 & q1);
+assign reset = fref & fdiv;
+
+always @(posedge fdiv or posedge fv_rst) begin 
+if (fv_rst) q0 <= #8 0; else q0 <= #8 1;
+end
+always @(posedge fref or posedge fr_rst) begin 
+if (fr_rst) q1 <= #8 0; else q1 <= #8 1;
+end
+
+assign up = q1;
+assign dn = q0;
+assign upb = ~q1;
+assign dnb = ~q0;
+assign test = reset;
+
+endmodule

@@ -1,0 +1,38 @@
+// PARAMETERS:
+//   first = Delay before taking first sample [S]
+//    samp = Sampling period [S]
+//   trans = Transtion time [S]
+//
+
+`include "discipline.h"
+`include "constants.h"
+
+//  model ztrans
+
+
+
+//   Z-domain in Numerator-Denominator form
+//   Filter order is:  1 / 2
+ 
+module ztrans (vin, vout);
+  input vin;
+  output vout;
+  electrical vin, vout;
+  parameter real samp = 3.90u from (0:inf);      
+
+
+
+//               nxN  is  numerator of degree N.
+//               dxN  is  denominator of degree N.
+  parameter real nx0 = 1.0;
+  parameter real dx0 = 1.0;
+  parameter real dx1 = -1;
+
+    analog begin
+        V(vout) <+  zi_nd( V(vin), { nx0 },
+                 { dx0, dx1 }, samp);
+    end
+
+endmodule
+
+
